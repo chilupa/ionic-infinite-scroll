@@ -6,15 +6,23 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content #content [scrollEvents]="true" (ionScroll)="logScrolling($event)">
+  <ion-card *ngFor="let user of users[0]">
+    <ion-card-content>
+      <div>{{user.name}}</div>
+      <div>{{user.email}}</div>
+    </ion-card-content>
+  </ion-card>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <ion-infinite-scroll
+    threshold="10%"
+    position="top"
+    (ionInfinite)="loadData($event)"
+  >
+    <ion-infinite-scroll-content
+      loadingSpinner="bubbles"
+      loadingText="Loading more data..."
+    >
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
 </ion-content>
