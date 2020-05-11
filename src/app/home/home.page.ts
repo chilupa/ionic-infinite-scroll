@@ -27,7 +27,7 @@ export class HomePage {
   getUsers() {
     this.homeService
       .getUsersData()
-      .subscribe((response: any) => this.users.push([...response]));
+      .subscribe((response: any) => this.users.push(...response));
     console.log('this users - ', this.users);
   }
 
