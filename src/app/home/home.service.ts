@@ -8,7 +8,7 @@ export class HomeService {
   constructor(private httpClient: HttpClient) {}
 
   getUsersData() {
-    const url = 'https://jsonplaceholder.typicode.com/users';
+    const url = '../../assets/data/users.json';
     return this.httpClient.get(url);
   }
 }
