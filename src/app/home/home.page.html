@@ -7,13 +7,6 @@
 </ion-header>
 
 <ion-content #content [scrollEvents]="true" (ionScroll)="logScrolling($event)">
-  <ion-card *ngFor="let user of users.slice().reverse()">
-    <ion-card-content>
-      <div>{{user.name}}</div>
-      <div>{{user.email}}</div>
-    </ion-card-content>
-  </ion-card>
-
   <ion-infinite-scroll
     threshold="10%"
     position="top"
@@ -25,4 +18,10 @@
     >
     </ion-infinite-scroll-content>
   </ion-infinite-scroll>
+  <ion-card *ngFor="let user of users.slice().reverse()">
+    <ion-card-content>
+      <div>{{user.name}}</div>
+      <div>{{user.email}}</div>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
