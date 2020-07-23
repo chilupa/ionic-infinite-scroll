@@ -1,6 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { IonInfiniteScroll, IonContent } from '@ionic/angular';
 import { HomeService } from './home.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -14,21 +15,20 @@ export class HomePage {
 
   users = [];
 
-  constructor(private homeService: HomeService) {
+  constructor(private homeService: HomeService, private router: Router) {
     this.getUsers();
   }
 
   ionViewDidEnter() {
-    setTimeout(() => {
-      this.content.scrollToBottom(1500);
-    }, 500);
+    // setTimeout(() => {
+    //   this.content.scrollToBottom(1500);
+    // }, 500);
   }
 
   getUsers() {
     this.homeService
       .getUsersData()
       .subscribe((response: any) => this.users.push(...response));
-    console.log('this users - ', this.users);
   }
 
   loadData(event) {
@@ -36,6 +36,10 @@ export class HomePage {
       this.getUsers();
       event.target.complete();
     }, 500);
+  }
+
+  onClick() {
+    this.router.navigate(['/about']);
   }
 
   logScrolling(event) {

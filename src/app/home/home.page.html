@@ -1,13 +1,14 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      Home
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content #content [scrollEvents]="true" (ionScroll)="logScrolling($event)">
-  <ion-infinite-scroll
+  <ion-button (click)="onClick()">About</ion-button>
+  <!-- <ion-infinite-scroll
     threshold="10%"
     position="top"
     (ionInfinite)="loadData($event)"
@@ -17,7 +18,7 @@
       loadingText="Loading more data..."
     >
     </ion-infinite-scroll-content>
-  </ion-infinite-scroll>
+  </ion-infinite-scroll> -->
   <ion-card *ngFor="let user of users.slice().reverse()">
     <ion-card-content>
       <div>{{user.name}}</div>
