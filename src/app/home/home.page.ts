@@ -2,7 +2,6 @@ import { Component, ViewChild } from '@angular/core';
 import { IonInfiniteScroll, IonContent } from '@ionic/angular';
 import { HomeService } from './home.service';
 import { Router } from '@angular/router';
-
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -17,12 +16,6 @@ export class HomePage {
 
   constructor(private homeService: HomeService, private router: Router) {
     this.getUsers();
-  }
-
-  ionViewDidEnter() {
-    // setTimeout(() => {
-    //   this.content.scrollToBottom(1500);
-    // }, 500);
   }
 
   getUsers() {

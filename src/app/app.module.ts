@@ -9,7 +9,6 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
-import { enterAnimation } from './animations/nav-animation';
 import {
   HAMMER_GESTURE_CONFIG,
   HammerGestureConfig,
@@ -27,10 +26,7 @@ export class MyHammerConfig extends HammerGestureConfig {
   entryComponents: [],
   imports: [
     BrowserModule,
-    IonicModule.forRoot({
-      // navAnimation: enterAnimation,
-      mode: 'ios',
-    }),
+    IonicModule.forRoot(),
     AppRoutingModule,
     HttpClientModule,
   ],
